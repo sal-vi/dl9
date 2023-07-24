@@ -1,0 +1,298 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "nav"
+    "filter"
+    "main"
+    "footer";
+    grid-template-rows: 3rem 4rem 1fr 4rem;
+}
+
+/* Nav  */
+
+nav {
+    grid-area: nav;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: #111111;
+    color: #fff;
+}
+
+nav .logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+nav .logo h1{
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.menu ul{
+    display: none;
+    list-style: none;
+    align-items: start;
+}
+
+.menu ul a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu ul li:hover{
+    font-weight: 600;
+}
+
+
+/* Filter */
+
+.filter{
+    grid-area: filter;
+    width: 100%;
+    background-color: #444444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    color: #ffffff;
+}
+
+.selector-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    height: 2rem;
+    border: 0px solid #ffffff;
+}
+
+.selector{
+    border: none;
+    appearance: none;
+    padding: 0 30px 0 15px;
+    width: 100%;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.select-icon-box{
+    pointer-events: none;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: #ffffff;
+    color: #000000;
+    
+}
+
+.select-icon-box i{
+    font-size: 20px;
+    margin: 0.7rem;
+}
+
+/* Main  */
+
+main{
+    grid-area: main;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+main .ship-list{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 1rem;
+}
+
+.ship-card{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background-color: #999999;
+    border-radius: 15px;
+}
+
+.ship-card img{
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.ship-card p{
+    text-align: center;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.ship-card div{
+    background-color: #111111;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.ship-card a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+}
+
+/* Pagination */
+
+.pagination{
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    border: 0.5px solid #333333;
+    border-left: 0;
+}
+
+.pagination div:nth-child(1){
+    border-left: 0.5px solid #333333;
+}
+
+.pagination i{
+    color: #333333;
+}
+
+.pagination i:hover{
+    color: #ffffff;
+}
+
+.pagination div:hover{
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Footer*/
+
+footer{
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #999999;
+    color: #fff;
+}
+
+.socials i{
+    font-size: 20px;
+    margin: 0.125rem;
+}
+
+footer p{
+    font-weight: 200;
+}
+
+/* Media Queries */
+
+@media (min-width: 576px){
+
+    .container{
+        grid-template-areas:
+        "nav nav"
+        "filter main"
+        "footer footer";
+        grid-template-rows: 3rem 1fr 4rem;
+        grid-template-columns: 25% 1fr;
+    }
+
+    /* Nav */
+
+    .menu i{
+        display: none;
+    }
+
+    .menu ul{
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .menu li{
+        margin: 0 0.25rem;
+    }
+
+    /* Main */
+
+    .ship-card{
+        width: 45%;
+    }
+    
+}
+
+@media (min-width: 992px){
+
+    .container{
+        grid-template-areas:
+        "nav filter"
+        "nav main"
+        "footer main";
+        grid-template-rows: 4rem 1fr 5rem;
+        grid-template-columns: 200px 1fr;
+    }
+
+    /* Nav */
+
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu ul{
+        flex-direction: column;
+    }
+
+    .menu li{
+        text-align: center;
+    }
+
+    /* Main */
+
+    .ship-card{
+        width: 23%;
+    }
+
+}
